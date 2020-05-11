@@ -15,6 +15,12 @@ public class Test {
         annotation();
     }
 
+    private static void xml() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+        Object person = applicationContext.getBean("person");
+        System.out.println(person);
+    }
+
     private static void annotation() {
         AnnotationConfigApplicationContext ap = new AnnotationConfigApplicationContext(ConfigClass.class);
         Person person = ap.getBean(Person.class);
@@ -24,11 +30,5 @@ public class Test {
         for (String name : namesForType) {
             System.out.println(name);
         }
-    }
-
-    private static void xml() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
-        Object person = applicationContext.getBean("person");
-        System.out.println(person);
     }
 }
