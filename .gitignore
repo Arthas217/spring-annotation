@@ -1,2 +1,12 @@
-.idea/
 .idea/workspace.xml
+.idea
+*.iws
+*.iml
+.DS_Store
+
+logs/
+target/
+
+.classpath
+.project
+.settings
