@@ -13,7 +13,6 @@ public class Test {
         xml();
         // @Configuration配置类 & @Bean 给容器中注册组件
         annotation();
-
     }
 
     private static void annotation() {
