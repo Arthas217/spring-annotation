@@ -1,2 +1,7 @@
 Spring注解驱动开发
 http://www.gulixueyuan.com/course/230/tasks
+
+
+bean包   代表组件
+config包 代表配置类
+Test类  代表主测试类

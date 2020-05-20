@@ -2,8 +2,8 @@ package org.jixi.bean;
 
 public class Person {
 
-    String name;
-    Integer age;
+    private String name;
+    private Integer age;
 
     public Person() {
     }
