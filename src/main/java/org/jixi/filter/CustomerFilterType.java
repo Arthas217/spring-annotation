@@ -21,7 +21,7 @@ public class CustomerFilterType implements TypeFilter {
         // 获取当前类资源（类的路径）
         Resource resource = metadataReader.getResource();
         String className = classMetadata.getClassName();
-//        System.out.println(annotationMetadata + "----->" + classMetadata + "----->" + resource + "----->" + className);
+        System.out.println(annotationMetadata + "----->" + classMetadata + "----->" + resource + "----->" + className);
 
         // 简单做个逻辑判断
         // 返回true代表保留这个bean，因为匹配 && 使用的是includeFilters

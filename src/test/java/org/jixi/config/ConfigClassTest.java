@@ -30,7 +30,7 @@ public class ConfigClassTest {
      * 给容器中注册组件person
      */
     @Test
-    public void testConfigurationBeanPerson01() {
+    public void testConfiguration() {
         // 参数是配置类class  （相当于传配置类的位置）
         AnnotationConfigApplicationContext ap = new AnnotationConfigApplicationContext(ConfigClass.class);
         Person person = ap.getBean(Person.class);
@@ -44,7 +44,9 @@ public class ConfigClassTest {
     /**
      * 测试包扫描的bean名字
      * 以下是我们自己定义的bean名字
+     * configClass1
      * configClass
+     * configClass2
      * bookController
      * bookDao
      * bookService
@@ -52,7 +54,7 @@ public class ConfigClassTest {
      */
     @Test
     public void testComponentScan() {
-        AnnotationConfigApplicationContext ap = new AnnotationConfigApplicationContext(ConfigClass.class);
+        AnnotationConfigApplicationContext ap = new AnnotationConfigApplicationContext(ConfigClass1.class);
         String[] beanDefinitionNames = ap.getBeanDefinitionNames();
         for (String name : beanDefinitionNames) {
             System.out.println(name);

@@ -20,9 +20,10 @@ public class ConfigClass2 {
      */
 
     @Scope(value = "singleton")
+//    @Scope(value = "prototype")
     @Bean(value = "person")
     public Person person() {
         System.out.println("给容器中添加Person.....");
-        return new Person("zlk", 25);
+        return new Person("zlk", 3);
     }
 }
