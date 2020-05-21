@@ -58,4 +58,16 @@ public class ConfigClassTest {
             System.out.println(name);
         }
     }
+
+    @Test
+    public void test02(){
+        AnnotationConfigApplicationContext ap = new AnnotationConfigApplicationContext(ConfigClass2.class);
+        String[] beanDefinitionNames = ap.getBeanDefinitionNames();
+        for (String name : beanDefinitionNames) {
+            System.out.println(name);
+        }
+        Person person1 = (Person)ap.getBean("person");
+        Person person2 = (Person)ap.getBean("person");
+        System.out.println(person1 == person2);
+    }
 }

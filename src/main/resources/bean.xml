@@ -10,7 +10,7 @@
     <!--包扫描，只要标注了@Controller/@Service/@Repositroy/@Component的组件 都会自动扫描加入容器中-->
     <context:component-scan base-package="org.jixi.bean" use-default-filters="false"></context:component-scan>
 
-    <bean id="person" class="org.jixi.bean.Person">
+    <bean id="person" class="org.jixi.bean.Person" scope="prototype">
         <property name="age" value="18"></property>
         <property name="name" value="zlk"></property>
     </bean>
