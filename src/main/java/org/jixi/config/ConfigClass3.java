@@ -10,6 +10,7 @@ import org.springframework.context.annotation.*;
  * 按照一定的条件进行判断，如果满足条件，再给容器中注册Bean组件
  */
 @Configuration
+@Conditional(value = {WindowCondition.class})
 public class ConfigClass3 {
 
     @Conditional(value = {MacCondition.class})
