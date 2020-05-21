@@ -1,12 +1,13 @@
 package org.jixi.config;
 
 import org.jixi.bean.Person;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.jixi.filter.CustomerFilterType;
+import org.jixi.service.BookService;
+import org.springframework.context.annotation.*;
+import org.springframework.stereotype.Controller;
 
 /**
- * @Configuration  告诉spring这是配置类 它可以替代之前的配置xml文件
+ * @Configuration 告诉spring这是配置类 它可以替代之前的配置xml文件
  * 实质是@Component组件
  */
 @Configuration
