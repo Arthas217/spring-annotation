@@ -4,7 +4,7 @@ import org.jixi.bean.Color;
 import org.springframework.beans.factory.FactoryBean;
 
 /**
- * 创建一个spring定义的工长Bean
+ * 自定义创建一个spring定义的工长Bean
  */
 public class CustomerFactoryBean implements FactoryBean<Color> {
 

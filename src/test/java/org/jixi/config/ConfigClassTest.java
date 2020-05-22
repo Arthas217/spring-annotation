@@ -153,4 +153,10 @@ public class ConfigClassTest {
         ap.close();
 
     }
+
+    @Test
+    public void testLife4() {
+        ap = new AnnotationConfigApplicationContext(ConfigClassForLifeCycle.class);
+        ap.close();
+    }
 }

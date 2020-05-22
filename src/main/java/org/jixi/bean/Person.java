@@ -1,5 +1,8 @@
 package org.jixi.bean;
 
+/**
+ * POJO
+ */
 public class Person {
 
     private String name;

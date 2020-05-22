@@ -2,13 +2,16 @@ package org.jixi.config;
 
 
 import org.jixi.bean.Car;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
+/**
+ * 配置类  bean生命周期
+ */
 @Configuration
-@ComponentScan(value = "org.jixi.bean")
+@ComponentScans({
+        @ComponentScan(value = "org.jixi.bean"),
+        @ComponentScan(value = "org.jixi.customer")
+})
 public class ConfigClassForLifeCycle {
 
     @Scope(value = "prototype")
