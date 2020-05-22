@@ -1,9 +1,6 @@
 package org.jixi.config;
 
-import org.jixi.bean.Car;
-import org.jixi.bean.Dog;
-import org.jixi.bean.Person;
-import org.jixi.bean.Red;
+import org.jixi.bean.*;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -145,6 +142,14 @@ public class ConfigClassTest {
 
         // 当dog类 是多实例时，获取dog对象是才构建和初始化
         Dog dog = (Dog)ap.getBean("dog");
+        ap.close();
+
+    }
+
+    @Test
+    public void testLife3() {
+        ap = new AnnotationConfigApplicationContext(ConfigClassForLifeCycle.class);
+//        Cat cat = (Cat) ap.getBean("cat");
         ap.close();
 
     }
