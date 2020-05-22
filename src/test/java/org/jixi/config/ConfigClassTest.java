@@ -96,11 +96,26 @@ public class ConfigClassTest {
         System.out.println(beansOfType);
     }
 
-
     @Test
-    public void testImport(){
+    public void testImport() {
         ap = new AnnotationConfigApplicationContext(ConfigClass4.class);
         getBeanNameByDefinition(ap);
+    }
+
+    @Test
+    public void testFactoryBean() {
+        ap = new AnnotationConfigApplicationContext(ConfigClass5.class);
+        getBeanNameByDefinition(ap);
+
+        // 虽然获取的bean的名称是customerFactoryBean
+        // 但是通过FactoryBean方式获取对象是getObject()返回的类型对象。
+        Object bean1 = ap.getBean("customerFactoryBean");
+        System.out.println("bean的类型：" + bean1.getClass());
+        Object bean2 = ap.getBean("customerFactoryBean");
+        System.out.println("两次获取bean是否是为同一个bean:" + (bean1 == bean2));
+
+        Object bean3 = ap.getBean("&customerFactoryBean");
+        System.out.println("想要ConfigClass5中@Bean标签的本身的这个bean（拿工长Bean的本身）：" +bean3.getClass());
 
     }
 }
