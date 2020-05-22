@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 实现接口方式 自定义容器bean的初始化和销毁
- * 这里使用的是 组件@Component + 扫码方式
+ * 这里使用的是 组件@Component + 扫码方式  + 多实例
  */
 @Component
 @Scope(value = "prototype")

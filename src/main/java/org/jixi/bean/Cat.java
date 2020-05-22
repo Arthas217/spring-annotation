@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * @PostConstruct & @PreDestroy
+ * @PostConstruct & @PreDestroy  & 单例
  * 通过注解方式，自定义容器bean的初始化和销毁
  */
 @Component
