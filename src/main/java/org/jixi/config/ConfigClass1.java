@@ -1,7 +1,7 @@
 package org.jixi.config;
 
 import org.jixi.bean.Person;
-import org.jixi.filter.CustomerFilterType;
+import org.jixi.customer.CustomerFilterType;
 import org.jixi.service.BookService;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;

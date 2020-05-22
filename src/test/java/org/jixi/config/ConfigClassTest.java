@@ -1,6 +1,7 @@
 package org.jixi.config;
 
 import org.jixi.bean.Person;
+import org.jixi.bean.Red;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -93,5 +94,13 @@ public class ConfigClassTest {
         // 获取所有bean及信息
         Map<String, Person> beansOfType = ap.getBeansOfType(Person.class);
         System.out.println(beansOfType);
+    }
+
+
+    @Test
+    public void testImport(){
+        ap = new AnnotationConfigApplicationContext(ConfigClass4.class);
+        getBeanNameByDefinition(ap);
+
     }
 }
