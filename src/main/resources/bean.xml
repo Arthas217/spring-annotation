@@ -15,5 +15,9 @@
         <property name="name" value="zlk"></property>
     </bean>
 
+    <bean id="car" class="org.jixi.bean.Car" scope="singleton"
+          init-method="init" destroy-method="destroy">
+    </bean>
+
 </beans>
 

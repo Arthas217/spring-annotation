@@ -25,6 +25,7 @@ public class CustomerFactoryBean implements FactoryBean<Color> {
     }
 
     public boolean isSingleton() {
-        return true;
+//        return true;
+        return false;
     }
 }

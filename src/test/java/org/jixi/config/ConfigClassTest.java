@@ -1,5 +1,6 @@
 package org.jixi.config;
 
+import org.jixi.bean.Car;
 import org.jixi.bean.Person;
 import org.jixi.bean.Red;
 import org.junit.Test;
@@ -115,7 +116,24 @@ public class ConfigClassTest {
         System.out.println("两次获取bean是否是为同一个bean:" + (bean1 == bean2));
 
         Object bean3 = ap.getBean("&customerFactoryBean");
-        System.out.println("想要ConfigClass5中@Bean标签的本身的这个bean（拿工长Bean的本身）：" +bean3.getClass());
+        System.out.println("想要ConfigClass5中@Bean标签的本身的这个bean（拿工长Bean的本身）：" + bean3.getClass());
+    }
 
+    @Test
+    public void testLife() {
+
+//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+//        Car car = (Car)applicationContext.getBean("car");
+//        System.out.println(car);
+//        car.destroy();
+
+        ap = new AnnotationConfigApplicationContext(ConfigClassForLifeCycle.class);
+        Car car = (Car) ap.getBean("car");
+        Car car1 = (Car) ap.getBean("car");
+        System.out.println(car);
+        System.out.println(car1);
+        ap.close();
+        car.destroy();
+        car1.destroy();
     }
 }
