@@ -1,6 +1,7 @@
 package org.jixi.config;
 
 import org.jixi.bean.Car;
+import org.jixi.bean.Dog;
 import org.jixi.bean.Person;
 import org.jixi.bean.Red;
 import org.junit.Test;
@@ -135,5 +136,16 @@ public class ConfigClassTest {
         ap.close();
         car.destroy();
         car1.destroy();
+    }
+
+    @Test
+    public void testLife2() {
+        ap = new AnnotationConfigApplicationContext(ConfigClassForLifeCycle.class);
+        Car car = (Car) ap.getBean("car");
+
+        // 当dog类 是多实例时，获取dog对象是才构建和初始化
+        Dog dog = (Dog)ap.getBean("dog");
+        ap.close();
+
     }
 }
