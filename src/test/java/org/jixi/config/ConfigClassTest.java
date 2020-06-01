@@ -3,9 +3,11 @@ package org.jixi.config;
 import org.jixi.bean.*;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.env.Environment;
 
 import java.util.Map;
 
@@ -24,7 +26,7 @@ public class ConfigClassTest {
         }
     }
 
-    public void getBeanNameByDefinition(AnnotationConfigApplicationContext ap) {
+    public void getBeanNameByDefinition() {
         String[] beanDefinitionNames = ap.getBeanDefinitionNames();
         for (String name : beanDefinitionNames) {
             System.out.println(name);
@@ -71,14 +73,14 @@ public class ConfigClassTest {
     @Test
     public void testComponentScan() {
         ap = new AnnotationConfigApplicationContext(ConfigClass1.class);
-        getBeanNameByDefinition(ap);
+        getBeanNameByDefinition();
     }
 
     @Test
     public void testScopeAndLazy() {
         // 容器启动并实例化
         ap = new AnnotationConfigApplicationContext(ConfigClass2.class);
-        getBeanNameByDefinition(ap);
+        getBeanNameByDefinition();
         // 容器获取bean
         Person person1 = (Person) ap.getBean("person");
         Person person2 = (Person) ap.getBean("person");
@@ -98,13 +100,13 @@ public class ConfigClassTest {
     @Test
     public void testImport() {
         ap = new AnnotationConfigApplicationContext(ConfigClass4.class);
-        getBeanNameByDefinition(ap);
+        getBeanNameByDefinition();
     }
 
     @Test
     public void testFactoryBean() {
         ap = new AnnotationConfigApplicationContext(ConfigClass5.class);
-        getBeanNameByDefinition(ap);
+        getBeanNameByDefinition();
 
         // 虽然获取的bean的名称是customerFactoryBean
         // 但是通过FactoryBean方式获取对象是getObject()返回的类型对象。
@@ -157,6 +159,19 @@ public class ConfigClassTest {
     @Test
     public void testLife4() {
         ap = new AnnotationConfigApplicationContext(ConfigClassForLifeCycle.class);
+        ap.close();
+    }
+
+    @Test
+    public void testPropertyValue(){
+        ap = new AnnotationConfigApplicationContext(PropertyValueConfigClass.class);
+        getBeanNameByDefinition();
+        System.out.println(ap.getBean(PersonValue.class));
+
+        //获取读取配置文件加载后，运行的环境变量中，通过它也能获取配置中的值
+        ConfigurableEnvironment environment = ap.getEnvironment();
+        String property = environment.getProperty("pv.nickName");
+        System.out.println(property);
         ap.close();
     }
 }
