@@ -5,7 +5,7 @@ import org.jixi.bean.Car;
 import org.springframework.context.annotation.*;
 
 /**
- * 配置类  bean生命周期
+ * 配置类 bean生命周期
  */
 @Configuration
 @ComponentScans({
