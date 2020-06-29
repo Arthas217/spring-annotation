@@ -8,13 +8,24 @@
     <artifactId>spring-annotation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <spring.version>4.3.21.RELEASE</spring.version>
+    </properties>
+
 
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>4.3.21.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
+        <!-- aop切面  -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>

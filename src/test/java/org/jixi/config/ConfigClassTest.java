@@ -1,7 +1,9 @@
 package org.jixi.config;
 
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import org.jixi.aop.MathCalculator;
 import org.jixi.bean.*;
+import org.jixi.config.aop.AopConfigClass;
 import org.jixi.control.BookController;
 import org.jixi.dao.BookDao;
 import org.jixi.service.BookService;
@@ -231,6 +233,16 @@ public class ConfigClassTest {
         //3) 刷新refresh容器
         ap.refresh();
         getBeanNameByType(DataSource.class);
+        ap.close();
+    }
+
+
+    @Test
+    public void testAOP(){
+        ap = new AnnotationConfigApplicationContext(AopConfigClass.class);
+        // 不要自己new一个 MathCalculator，而是使用容器中的组件MathCalculator
+        MathCalculator mathCalculator = ap.getBean(MathCalculator.class);
+        mathCalculator.div(1,1);
         ap.close();
     }
 

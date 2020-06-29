@@ -2,10 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans.xsd
           http://www.springframework.org/schema/context
-          http://www.springframework.org/schema/context/spring-context.xsd">
+          http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--包扫描，只要标注了@Controller/@Service/@Repositroy/@Component的组件 都会自动扫描加入容器中-->
     <context:component-scan base-package="org.jixi.bean" use-default-filters="false"></context:component-scan>
@@ -19,6 +20,10 @@
     <bean id="car" class="org.jixi.bean.Car" scope="singleton"
           init-method="init" destroy-method="destroy">
     </bean>
+
+
+   <!-- 开启基于注解版的切面功能 -->
+<!--    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
 
 </beans>
 
