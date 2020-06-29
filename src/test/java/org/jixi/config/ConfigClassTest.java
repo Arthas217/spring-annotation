@@ -13,6 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 
+import javax.sql.DataSource;
 import java.util.Map;
 
 
@@ -205,4 +206,33 @@ public class ConfigClassTest {
         System.out.println("测试使用的ap："+ap);
         ap.close();
     }
+
+
+    /**
+     * 第一种 激活方式  虚拟机启动参数  -Dspring.profiles.active=dev
+     */
+    @Test
+    public void testProfile(){
+        ap = new AnnotationConfigApplicationContext(ProfileConfigClass.class);
+        getBeanNameByType(DataSource.class);
+        ap.close();
+    }
+
+    /**
+     * 第二种 代码激活方式 需要无参构造器，要保留完成有参中三个过程
+     */
+    @Test
+    public void testProfile1(){
+        //1）创建ApplicationContext对象（得到ioc容器）
+        ap = new AnnotationConfigApplicationContext();
+        //2) 需要设置激活的环境、注册register主配置类
+        ap.getEnvironment().setActiveProfiles("dev");
+        ap.register(ProfileConfigClass.class);
+        //3) 刷新refresh容器
+        ap.refresh();
+        getBeanNameByType(DataSource.class);
+        ap.close();
+    }
+
+
 }
