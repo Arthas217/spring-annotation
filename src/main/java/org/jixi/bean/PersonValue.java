@@ -1,7 +1,6 @@
 package org.jixi.bean;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 
 /**
  * @Value注解赋值

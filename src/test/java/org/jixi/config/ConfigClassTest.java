@@ -1,6 +1,9 @@
 package org.jixi.config;
 
 import org.jixi.bean.*;
+import org.jixi.control.BookController;
+import org.jixi.dao.BookDao;
+import org.jixi.service.BookService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.EnvironmentAware;
@@ -143,7 +146,7 @@ public class ConfigClassTest {
         Car car = (Car) ap.getBean("car");
 
         // 当dog类 是多实例时，获取dog对象是才构建和初始化
-        Dog dog = (Dog)ap.getBean("dog");
+        Dog dog = (Dog) ap.getBean("dog");
         ap.close();
 
     }
@@ -163,7 +166,7 @@ public class ConfigClassTest {
     }
 
     @Test
-    public void testPropertyValue(){
+    public void testPropertyValue() {
         ap = new AnnotationConfigApplicationContext(PropertyValueConfigClass.class);
         getBeanNameByDefinition();
         System.out.println(ap.getBean(PersonValue.class));
@@ -172,6 +175,26 @@ public class ConfigClassTest {
         ConfigurableEnvironment environment = ap.getEnvironment();
         String property = environment.getProperty("pv.nickName");
         System.out.println(property);
+        ap.close();
+    }
+
+    @Test
+    public void testAutoWired() {
+        ap = new AnnotationConfigApplicationContext(AutowiredConfigClass.class);
+
+        BookController bookController = ap.getBean(BookController.class);
+        bookController.printBookService();
+
+        //判断是否是容器中的BookService
+        BookService bookService = ap.getBean(BookService.class);
+        System.out.println(bookService);
+
+        bookService.printBookDao();
+
+        //注意如果BookDao在容器中出现多个的话，此处是报错的,因为是按类型找的
+//        BookDao dao = ap.getBean(BookDao.class);
+
+
         ap.close();
     }
 }
