@@ -1,6 +1,5 @@
 package org.jixi.service;
 
-import jdk.nashorn.internal.ir.annotations.Reference;
 import org.jixi.dao.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

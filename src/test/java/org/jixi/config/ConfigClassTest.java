@@ -1,5 +1,6 @@
 package org.jixi.config;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.jixi.bean.*;
 import org.jixi.control.BookController;
 import org.jixi.dao.BookDao;
@@ -194,7 +195,12 @@ public class ConfigClassTest {
         //注意如果BookDao在容器中出现多个的话，此处是报错的,因为是按类型找的
 //        BookDao dao = ap.getBean(BookDao.class);
 
-
+        Boss bean = ap.getBean(Boss.class);
+        System.out.println(bean);
+        Car car = ap.getBean(Car.class);
+        System.out.println(car);
+        Color color = ap.getBean(Color.class);
+        System.out.println(color);
         ap.close();
     }
 }
