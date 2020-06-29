@@ -201,6 +201,8 @@ public class ConfigClassTest {
         System.out.println(car);
         Color color = ap.getBean(Color.class);
         System.out.println(color);
+
+        System.out.println("测试使用的ap："+ap);
         ap.close();
     }
 }
