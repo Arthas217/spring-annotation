@@ -13,6 +13,7 @@ import java.util.Arrays;
  * @Author zc217
  * @Date 2020/6/29
  */
+// 告诉spring哪个类是切面类( LogAspect类上添加注解@Aspect）
 @Aspect
 public class LogAspect {
 
